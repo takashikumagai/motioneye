@@ -14,6 +14,6 @@ jobs:
       - run: python3 -m build
       - run: pip install .
       - run: mkdir --parents --verbose .mypy_cache
-      - run: mypy --ignore-missing-imports --install-types --non-interactive . || true
+      - run: mypy --explicit-package-bases --ignore-missing-imports --install-types --non-interactive . || true
       - run: pytest . || pytest --doctest-modules . || true
       - run: safety check
